@@ -1,0 +1,25 @@
+[Unit]
+Description=CrowdSec BIRD Streaming Bouncer (blackhole routes)
+Documentation=https://crowdsec.net
+After=network-online.target crowdsec.service bird.service
+Wants=network-online.target
+Requires=crowdsec.service bird.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /usr/local/bin/crowdsec-bird-bouncer.py
+WorkingDirectory=/usr/local/bin
+EnvironmentFile=/etc/crowdsec/bird-bouncer.env
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+MemoryAccounting=yes
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target

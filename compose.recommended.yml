@@ -1,0 +1,14 @@
+services:
+  bouncer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crowdsec-bird-bouncer
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - /etc/crowdsec/bird-bouncer.env
+    volumes:
+      - /etc/bird:/etc/bird
+      - /run/bird:/run/bird
+
