@@ -164,7 +164,7 @@ CROWDSEC_BIRD_LAPI_URL=http://<crowdsec-host>:<lapi-port>
 
 Примечание:
 
-- Порт должен совпадать с `listen_uri` (во многих дефолтных установках это `8088`).
+- Порт должен совпадать с `listen_uri` (в распространенных/дефолтных сценариях это `8080`).
 - Минимизируйте поверхность доступа (trusted IP + firewall ACL).
 
 ## Сервис systemd
@@ -363,6 +363,12 @@ Bouncer может отправлять usage metrics в `POST /v1/usage-metrics
 Счетчики packet/byte drop на dataplane роутера в проект не входят.
 
 ## Docker (опционально)
+
+Готовый образ (GHCR):
+
+```bash
+docker pull ghcr.io/nikolya-prodigy/crowdsec-bird-bouncer:latest
+```
 
 ### Режим A (рекомендуемый): BIRD на хосте + bouncer в контейнере
 

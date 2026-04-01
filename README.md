@@ -164,7 +164,7 @@ CROWDSEC_BIRD_LAPI_URL=http://<crowdsec-host>:<lapi-port>
 
 Note:
 
-- Use the same port as `listen_uri` (for example `8088` in many default installs).
+- Use the same port as `listen_uri` (for example `8080` in common/default setups).
 - Restrict exposure as much as possible (IP ACL + firewall).
 
 ## Systemd Service
@@ -363,6 +363,12 @@ Exported metrics are component-level:
 Router dataplane packet-drop counters are intentionally out of scope.
 
 ## Docker (Optional)
+
+Prebuilt image (GHCR):
+
+```bash
+docker pull ghcr.io/nikolya-prodigy/crowdsec-bird-bouncer:latest
+```
 
 ### Mode A (Recommended): Host BIRD + Containerized Bouncer
 
