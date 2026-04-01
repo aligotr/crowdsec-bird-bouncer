@@ -308,6 +308,14 @@ add chain=blackhole-chain disabled=no \
 rule="if (bgp-communities includes blackhole) { set blackhole yes; set gw 0.0.0.0; accept; }"
 ```
 
+Optional (topology-dependent) source validation setting:
+
+```mikrotik
+/ip settings set rp-filter=loose
+```
+
+Use `loose` mode when asymmetric routing or multi-uplink paths are present, to avoid dropping valid return traffic due to strict reverse-path checks.
+
 Parameter mapping:
 
 - `router-id` / `local.address`: MikroTik local address.

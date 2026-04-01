@@ -308,6 +308,14 @@ add chain=blackhole-chain disabled=no \
 rule="if (bgp-communities includes blackhole) { set blackhole yes; set gw 0.0.0.0; accept; }"
 ```
 
+Опциональная настройка проверки обратного пути (зависит от топологии):
+
+```mikrotik
+/ip settings set rp-filter=loose
+```
+
+`loose` режим целесообразен при асимметричной маршрутизации или multi-uplink, чтобы исключить ложные дропы валидного обратного трафика из-за strict reverse-path проверки.
+
 Соответствие параметров:
 
 - `router-id` / `local.address`: локальный адрес MikroTik.
