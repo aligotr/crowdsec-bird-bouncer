@@ -64,7 +64,7 @@ jobs:
         id: meta-bird
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository_owner }}/bird
+          images: ghcr.io/${{ github.repository_owner }}/crowdsec-bird
           tags: |
             type=ref,event=branch
             type=ref,event=tag
